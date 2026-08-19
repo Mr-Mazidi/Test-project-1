@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+
+
+
+
+:root {
+
+    --bg-color: white;
+    --text-color: #242424;
+
+}
+
+.dark {
+
+    --bg-color: #242424;
+    --text-color: white;
+
+}
+
+
+
+body {
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+}
+
+
+
+.Loading {
+    animation: Loading infinite linear 3s;
+}
+
+.animationProfil {
+    animation: animationProfil 2s alternate infinite;
+}
+
+.changeBackGround {
+    background: linear-gradient(to left, gray, gray, black, gray, gray);
+    background-size: 600% 100%;
+    animation: changeBackGround 4s linear infinite;
+}
+
+
+
+@keyframes Loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes animationProfil {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes changeBackGround {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: 0% 0;
+    }
+}
