@@ -10,16 +10,16 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-const schama = z.object({
-    firstNum: z.string().max(10, { error: "The value must be more than 6 characters" }).refine(
-        (value) => { return Number(value) }, { error: "The number is incorrect." }).refine(
+const schema = z.object({
+    firstNum: z.string().max(10, { error: "The value must be more than 10 characters" }).refine(
+        (value) => { return !Number.isNaN(Number(value)) }, { error: "The number is incorrect." }).refine(
             (value) => { return Number(value) > 0 }, { error: "The number must be greater than zero." }
         ),
     sourceCurrency: z.string(),
     destinationCurrecy: z.string(),
 })
 
-type DataFormType = z.infer<typeof schama>
+type DataFormType = z.infer<typeof schema>
 
 export default function Page() {
 
@@ -36,7 +36,7 @@ export default function Page() {
 
         },
 
-        resolver: zodResolver(schama)
+        resolver: zodResolver(schema)
     })
 
 
@@ -56,7 +56,6 @@ export default function Page() {
         }
 
     })
-
 
 
     return (
@@ -105,7 +104,8 @@ export default function Page() {
 
                         <div className="group flex flex-col md:flex-row justify-center items-center ">
 
-                            <label className="disabled:opacity-50" htmlFor="From">{Number(valueFirstNum).toLocaleString("en-US")}</label>
+                            <label className="disabled:opacity-50" htmlFor="From">{!Number.isNaN(Number(valueFirstNum)) ? Number(valueFirstNum).toLocaleString("en-US") : "The number is incorrect."}</label>
+
                             <select className="
                             text-center
                             bg-blue-300 
