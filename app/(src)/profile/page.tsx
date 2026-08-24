@@ -134,7 +134,6 @@ export default function Profile() {
                                 </p>
 
                             </div>
-                            <video src={""} />
 
                         </div>
 

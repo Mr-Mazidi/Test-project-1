@@ -43,6 +43,10 @@ body {
     animation: changeBackGround 4s linear infinite;
 }
 
+.changeWidth {
+    animation: changeWidth 5s linear;
+}
+
 
 
 @keyframes Loading {
@@ -73,5 +77,15 @@ body {
 
     100% {
         background-position: 0% 0;
+    }
+}
+
+@keyframes changeWidth {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
     }
 }
