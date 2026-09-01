@@ -52,7 +52,6 @@ export default function Page() {
 
         onSuccess: (data) => {
             setResult(Number(data.rates[getValues("destinationCurrecy")]).toLocaleString("en-US"))
-            console.log(1, data)
         }
 
     })
